@@ -1,32 +1,17 @@
-def objective_fn(x):
-    return x**2+4*x+4
+import matplotlib.pyplot as plt
+#objective fn--z=2x+3y x=[i for i in range(0,12)] 
+y1=[((8-i)/2) for i in x] 
+y2=[(9-3*i) for i in x] 
+c1=2 
+c2=3
+plt.plot(x,y1) 
+plt.plot(x,y2)
+plt.grid(True) #plt.show()
+points=[[0,0],[0,4],[3,0],[2,3]] 
+z=[] for i in points:
+value=c1*i[0]+c2*i[1]
+ z.append(value) 
+print("value at ",i,"is",value)
 
-def gradient(x):
-   return 2*x+4
-
-def line_search(initial_x,learning_rate,epsilon):
-    x=initial_x
-    iteration=0
-
-    while True:
-        gradient_x=gradient(x)
-        new_x=x-learning_rate*gradient_x
-
-        if abs(new_x-x)<epsilon:
-            break
-
-        x= new_x
-        iteration+=1
-    return x,objective_fn(x),iteration
-
-
-initial_x=0.0
-learning_rate=0.1   #step size
-epsilon=1e-6       #stopping condition
-
-result_x,result_min,iteration=line_search(initial_x,learning_rate , epsilon)
-
-
-print(f"Minimum value found at x={result_x}")
-print(f"Minimum objective function value ={result_min}")
-print(f"Iteration={iteration}")
+Max=points[z.index(max(z))] print("optimal point
+is:",Max) 
